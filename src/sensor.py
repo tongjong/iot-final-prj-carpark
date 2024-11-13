@@ -1,6 +1,5 @@
-import random
 
-from src.car_park import CarPark
+from car_park import CarPark
 from abc import ABC,abstractmethod
 
 

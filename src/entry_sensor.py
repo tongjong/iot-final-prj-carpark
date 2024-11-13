@@ -1,7 +1,6 @@
 import random
-
-from src.car_park import CarPark
-from src.sensor import Sensor
+from car_park import CarPark
+from sensor import Sensor
 
 
 class EntrySensor(Sensor):
@@ -9,11 +8,11 @@ class EntrySensor(Sensor):
         super().__init__(car_park)
         self.last_detected_car = None
 
-    def detect_car(self):
+    def detect_car(self) -> str:
         number = random.randint(0, 999)
         self.last_detected_car =  f"FAKE-{number:03}"
         return self.last_detected_car
 
-    def update(self):
+    def update(self) -> None:
         if self.last_detected_car is not None:
             self.car_park.plates.append(self.last_detected_car)
