@@ -12,10 +12,10 @@ class Display:
 
     def show_update(self, available_bays: int, temperature: float, message: str) -> str:
         if self.display_mode == DisplayMode.PLAIN:
-            return f'Available Bays: {'FULL' if available_bays is 0 else available_bays}\n Temperature: {temperature}\n Message: {message}'
+            return f'Available Bays: {'FULL' if available_bays == 0 else available_bays}\n Temperature: {temperature}\n Message: {message}'
         elif self.display_mode == DisplayMode.STYLE:
             display_message =  f'--------------------------------------------------\n' \
-                                f'--------------Available Bays: {'FULL' if available_bays is 0 else available_bays}-----------------\n' \
+                                f'--------------Available Bays: {'FULL' if available_bays == 0 else available_bays}-----------------\n' \
                                 '--------------------------------------------------\n' \
                                 f'----------------Temperature: {temperature}-------------------\n' \
                                 f'--------------------------------------------------\n' \

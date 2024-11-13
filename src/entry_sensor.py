@@ -8,7 +8,7 @@ class EntrySensor(Sensor):
         super().__init__(car_park)
 
     def detect_car(self) -> None:
-        if self.car_park.available_bays is 0:
+        if self.car_park.available_bays == 0:
             self.is_on = False
         else:
             self.is_on = True

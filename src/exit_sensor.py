@@ -8,7 +8,7 @@ class ExitSensor(Sensor):
         super().__init__(car_park)
 
     def detect_car(self) -> None:
-        if self.car_park.available_bays is 100:
+        if self.car_park.available_bays == 100:
             self.is_on = False
         else:
             self.is_on = True
