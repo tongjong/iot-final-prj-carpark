@@ -1,12 +1,29 @@
+from enum import Enum
+
+
+class DisplayMode(Enum):
+    PLAIN = "Plain",
+    STYLE = "Style",
+
 class Display:
-    def __init__(self, available_bays: int=None, temperature: float=None, message: str=None):
-        self.available_bays = available_bays
-        self.temperature = temperature
+    def __init__(self, display_mode):
+        self.display_mode = display_mode
+
+
+    def show(self, available_bays: int, temperature: float=None, message: str=None):
         if message is None:
-            self.message = "Please park responsibly. Thank you for helping keep our community safe!"
-        else:
-            self.message = message
+            message = "Please park responsibly. Thank you for helping keep our community safe!"
 
+        if self.display_mode == DisplayMode.PLAIN:
+            return f'Available Bays: {available_bays}\n Temperature: {temperature}\n Message: {message}'
+        elif self.display_mode == DisplayMode.STYLE:
+            display_message =  ('-------------------------------------------------\n',
+                                f'--------------Available Bays: {available_bays}------------------\n',
+                                '-------------------------------------------------\n',
+                                f'----------------Temperature: {temperature}---------------------\n',
+                                f'------------------------------------------------\n')
+            line_length = 18
+            for i in range(0, len(message), line_length):
+                display_message += message[i:i + line_length] + '\n'
 
-    def show(self):
-        return f'Available Bays: {self.available_bays}\n Temperature: {self.temperature}\n Message: {self.message}'
+            return display_message

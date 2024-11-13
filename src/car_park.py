@@ -1,5 +1,4 @@
 import random
-
 from display import Display
 
 class CarPark:
@@ -9,9 +8,10 @@ class CarPark:
         self.location = location
         self.display = display
         self.plates = []
+        self.temperature = random.randint(15,40)
 
     @classmethod
-    def get_car_park(cls, name, capacity, location, display):
+    def get_car_park(cls, name, capacity, location, display) -> 'CarPark':
         return cls(name, capacity, location, display)
 
     @property
@@ -23,10 +23,6 @@ class CarPark:
         return max(self.capacity - len(self.plates), 0)
 
     def update_display(self, message=None) -> None:
-        self.display.available_bays = self.available_bays
-        self.display.temperature = random.randint(10,40)
-        if message is not None:
-            self.display.message = message
-        self.display.show()
+        self.display.show(self.available_bays, self.temperature, message)
 
 
