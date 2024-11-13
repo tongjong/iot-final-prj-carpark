@@ -6,14 +6,15 @@ from sensor import Sensor
 class ExitSensor(Sensor):
     def __init__(self, car_park: CarPark):
         super().__init__(car_park)
-        self.last_detected_car = None
 
-    def detect_car(self) -> str:
-        if self.car_park.plates > 0:
-            self.last_detected_car = random.choice(self.car_park.plates)
-            return self.last_detected_car
+    def detect_car(self) -> None:
+        if self.car_park.available_bays is 100:
+            self.is_on = False
+        else:
+            self.is_on = True
+            self.detected_plate = random.choice(self.car_park.plates)
+
 
     def update(self) -> None:
-        if self.last_detected_car is not None:
-            self.car_park.plates.remove(self.last_detected_car)
-
+        if self.is_on and self.detected_plate is not None:
+            self.car_park.plates.remove(self.detected_plate)
