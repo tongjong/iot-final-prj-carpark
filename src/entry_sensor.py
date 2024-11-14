@@ -1,6 +1,7 @@
 import random
 from car_park import CarPark
 from sensor import Sensor
+from car_parking_log import log, Action
 
 
 class EntrySensor(Sensor):
@@ -14,6 +15,7 @@ class EntrySensor(Sensor):
             self.is_on = True
             number = random.randint(0, 999)
             self.detected_plate = f"FAKE-{number:03}"
+            log(self.detected_plate, Action.ENTRY)
 
 
     def update(self) -> None:
