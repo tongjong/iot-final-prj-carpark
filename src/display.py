@@ -20,6 +20,7 @@ class Display:
                                 f'----------------Temperature: {temperature}-------------------\n' \
                                 f'--------------------------------------------------\n' \
                                 f'💮💮💮💮💮💮💮💮💮💮💮💮💮💮💮💮💮💮💮💮💮💮\n'
+            # Match the line length with the template created above for better visual appearance
             line_length = 40
             words = message.split(' ')
             line = ''
