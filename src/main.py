@@ -3,7 +3,12 @@ from display import Display
 from display import DisplayMode
 from entry_sensor import EntrySensor
 from exit_sensor import ExitSensor
+from sensor import Sensor
 
+
+def process_sensor(sensor: Sensor) -> None:
+ sensor.detect_car()
+ sensor.update()
 
 display =Display(display_mode=DisplayMode.PLAIN)
 car_park = CarPark("Moon Car Park", 100, "moondalup", display)
@@ -17,12 +22,10 @@ while True:
  user_input = input("Enter 'In' or 'Out'(or quit): ").strip().upper()
 
  if user_input == "IN":
-  entry_sensor.detect_car()
-  entry_sensor.update()
+  process_sensor(entry_sensor)
   print(car_park.update_display())
  elif user_input == "OUT":
-  exit_sensor.detect_car()
-  exit_sensor.update()
+  process_sensor(exit_sensor)
   print(car_park.update_display())
  elif user_input == "ADMIN":
   logs = car_park.log_file
