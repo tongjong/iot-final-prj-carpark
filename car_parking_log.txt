@@ -5,3 +5,7 @@ Car FAKE-878 entered at 2024-11-14 12:21:04
 Car FAKE-561 entered at 2024-11-14 12:21:37
 Car FAKE-561 exited at 2024-11-14 12:21:40
 Car FAKE-986 entered at 2024-11-14 12:21:45
+Car FAKE-267 entered at 2024-11-14 13:06:57
+Car FAKE-991 entered at 2024-11-14 13:07:00
+Car FAKE-991 exited at 2024-11-14 13:07:03
+Car FAKE-267 exited at 2024-11-14 13:07:05
