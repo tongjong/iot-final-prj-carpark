@@ -1,6 +1,7 @@
 import random
 from car_park import CarPark
 from sensor import Sensor
+from car_parking_log import Action
 
 
 class ExitSensor(Sensor):
@@ -13,6 +14,7 @@ class ExitSensor(Sensor):
         else:
             self.is_on = True
             self.detected_plate = random.choice(self.car_park.plates)
+            self.logger.log(self.detected_plate, Action.EXIT)
 
 
     def update(self) -> None:
